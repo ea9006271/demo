@@ -41,6 +41,7 @@ export default class PreloadScene extends Phaser.Scene{
         this.load.image('dialog-npc01', 'assets/img/dialog-npc01.png');
 
         this.load.image('bag', 'assets/img/bag.png');
+        this.load.image('bag-light', 'assets/img/bag-light.png');
 
         //Player
         this.load.spritesheet('kuso', 'assets/kuso3d-act_v3.png', { frameWidth: 240, frameHeight: 320 });
@@ -75,6 +76,7 @@ export default class PreloadScene extends Phaser.Scene{
 
             this.load.image('speak', 'assets/img/speak.png');
             this.load.image('flower', 'assets/img/flower.png');
+            this.load.image('smallbag', 'assets/img/smallbag.png');
         }
         else if(gameLevel == 1){
             //木之門-1

@@ -18,8 +18,15 @@ export default class Scene2 extends Phaser.Scene
         this.add.tileSprite(posX, posY, imageWidth, imageHeight, 'bg-ground').setScale(gameScale).setDepth(70);  //地板
         this.add.tileSprite(posX, posY, imageWidth, imageHeight, 'bg-green').setScale(gameScale).setDepth(100);//光點
 
+        let w = 224, h = 224;
+        posX = (imageWidth-(w/2))*gameScale;
+        posY =  (imageHeight-(h/2))*gameScale;
+        var bag = this.add.tileSprite(posX, posY, w, h, 'bag').setScale(gameScale).setDepth(101);
+        this.bagLight = this.add.tileSprite(posX, posY, w, h, 'bag-light').setScale(gameScale).setDepth(101);
+        this.bagLight.visible = false;
+
         var ani201, ani202, ani203;
-        let w = 640, h = 1080;
+        w = 640, h = 1080;
         ani201 = this.physics.add.sprite((imageWidth/3.5)*gameScale, (imageHeight/2)*gameScale, 'ani-s102-1');
         ani201.setScale(gameScale).setDepth(55);
         this.anims.create({
@@ -72,7 +79,16 @@ export default class Scene2 extends Phaser.Scene
         this.btnFlower.visible = false;
         this.btnFlower.setInteractive({
             useHandCursor: true
-        }).on('pointerdown', () => this.btnFlower_Click);
+        }).on('pointerdown', () => this.btnFlower_Click());
+
+        w=180, h=180;
+        posX = imageWidth/2*gameScale;
+        posY = imageHeight/2*gameScale;
+        this.btnSmallbag = this.add.tileSprite(posX, posY, w, h, 'smallbag').setScale(gameScale).setDepth(100);
+        this.btnSmallbag.visible = false;
+        this.btnSmallbag.setInteractive({
+            useHandCursor: true
+        }).on('pointerdown', () => this.btnSmallbag_Click());
     }
 
     update(time, delta)
@@ -82,6 +98,18 @@ export default class Scene2 extends Phaser.Scene
     }
 
     btnFlower_Click(){
+        this.btnFlower.visible = false;
+        //this.btnSmallbag.visible = true;
+        dialogBox.start('s102-02');
+    }
 
+    btnSmallbag_Click(){
+        this.bagLight.visible = true;
+        this.time.delayedCall(500, () => {
+            this.bagLight.visible = false;
+        });
+        this.time.delayedCall(1000, () => {
+            this.scene.start('scene1');
+        });        
     }
 }

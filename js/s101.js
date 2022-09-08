@@ -18,7 +18,7 @@ export default class Scene1 extends Phaser.Scene
         this.add.tileSprite(posX, posY, imageWidth, imageHeight, 'bg-ground').setScale(gameScale).setDepth(70);  //地板
         this.add.tileSprite(posX, posY, imageWidth, imageHeight, 'bg-green').setScale(gameScale).setDepth(100);//光點
     
-        var pic1, pic2, pic3, bag;
+        var pic1, pic2, pic3, bag, bagLight;
         let w=323, h=802;
         posX = w*1.5*gameScale;
         posY = h/2*gameScale;
@@ -32,8 +32,12 @@ export default class Scene1 extends Phaser.Scene
         posY = h/2*gameScale;
         pic3 = this.add.tileSprite(posX, posY, w, h, 'pic03').setScale(gameScale).setDepth(50);
     
-        w = 130, h = 138;
-        bag = this.add.tileSprite((imageWidth-w)*gameScale, (imageHeight-h)*gameScale, w, h, 'bag').setScale(gameScale).setDepth(100);
+        w = 224, h = 224;
+        posX = (imageWidth-(w/2))*gameScale;
+        posY =  (imageHeight-(h/2))*gameScale;
+        bag = this.add.tileSprite(posX, posY, w, h, 'bag').setScale(gameScale).setDepth(100);
+        bagLight = this.add.tileSprite(posX, posY, w, h, 'bag-light').setScale(gameScale).setDepth(100);
+        bagLight.visible = false;
 
         var ani01, ani02, ani03, anifish, anigoldfish;
         w=466;

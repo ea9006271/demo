@@ -121,6 +121,10 @@ export default class DialogBox{
                         this.scene.btnSpeak.visible = false;
                         this.scene.btnFlower.visible = true;
                         break;
+                    case 's102-02':
+                        this.scene.btnFlower.visible = false;
+                        this.scene.btnSmallbag.visible = true;
+                        break;
                 }
                 
             }
