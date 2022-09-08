@@ -1,6 +1,7 @@
 const imageWidth = 1920, imageHeight = 1080;
 var gameLevel = 0;
 var player;
+var dialogBox;
 /*
 0 - 荷之門   - s101~s102
 1 - 木之門   - s201~s202
@@ -50,3 +51,21 @@ function setCanvas() {
 window.onload = function () {
 
 };
+
+var story = [
+    {
+        "id" : "s101-01",
+        "content" : [
+            {
+                "avatar" : "kuso",
+                "words" : "不知道如意在哪裡？"
+            },
+            {
+                "avatar" : "kuso",
+                "words" : "畫作有些部分不見了…發生什麼事了",
+                "next" : ["load", "scene2"]
+            }
+        ]
+        
+    }
+];

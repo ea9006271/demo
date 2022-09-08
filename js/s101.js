@@ -15,16 +15,27 @@ export default class Scene1 extends Phaser.Scene
         this.add.tileSprite(posX, posY, imageWidth, imageHeight, 'bg-s101-3').setScale(gameScale).setDepth(0);   //背景
         this.add.tileSprite(posX, posY, imageWidth, imageHeight, 'bg-s101-1').setScale(gameScale).setDepth(100); //前景
         this.add.tileSprite(posX, posY, imageWidth, imageHeight, 'bg-s101-2').setScale(gameScale).setDepth(50);  //中景
-        this.add.tileSprite(posX, posY, imageWidth, imageHeight, 'bg-s101-4').setScale(gameScale).setDepth(70);  //地板
+        this.add.tileSprite(posX, posY, imageWidth, imageHeight, 'bg-ground').setScale(gameScale).setDepth(70);  //地板
         this.add.tileSprite(posX, posY, imageWidth, imageHeight, 'bg-green').setScale(gameScale).setDepth(100);//光點
     
-        let w=397, h=795;
-        var pic0, pic1, pic2;
-        pic0 = this.add.tileSprite(w*1.5*gameScale, h/2*gameScale, w, h, 'pic01').setScale(gameScale).setDepth(50);
-        pic1 = this.add.tileSprite(((w*1.5)+(w*0.8))*gameScale, h/2*gameScale, w, h, 'pic02').setScale(gameScale).setDepth(50);
-        pic2 = this.add.tileSprite(((w*1.5)+(2*w*0.8))*gameScale, h/2*gameScale, w, h, 'pic03').setScale(gameScale).setDepth(50);
+        var pic1, pic2, pic3, bag;
+        let w=323, h=802;
+        posX = w*1.5*gameScale;
+        posY = h/2*gameScale;
+        pic1 = this.add.tileSprite(posX, posY, w, h, 'pic01').setScale(gameScale).setDepth(50);
+        w=326, h=814;
+        posX = ((323*1.5)+(w*0.85))*gameScale;
+        posY = h/2*gameScale;
+        pic2 = this.add.tileSprite(posX, posY, w, h, 'pic02').setScale(gameScale).setDepth(50);
+        w=496, h=755;
+        posX = ((323*1.5)+(326*2))*gameScale;
+        posY = h/2*gameScale;
+        pic3 = this.add.tileSprite(posX, posY, w, h, 'pic03').setScale(gameScale).setDepth(50);
     
-        var ani01, ani02, ani03, anifish;
+        w = 130, h = 138;
+        bag = this.add.tileSprite((imageWidth-w)*gameScale, (imageHeight-h)*gameScale, w, h, 'bag').setScale(gameScale).setDepth(100);
+
+        var ani01, ani02, ani03, anifish, anigoldfish;
         w=466;
         h=454;
         ani01 = this.physics.add.sprite((imageWidth/3.3)*gameScale, (imageHeight-(h/2))*gameScale, 'ani-s101-1');
@@ -71,13 +82,31 @@ export default class Scene1 extends Phaser.Scene
             repeat: -1
         });
         anifish.anims.play('ani-s101-fish', true);
+
+        w=1080, h=1080;
+        anigoldfish = this.physics.add.sprite(((imageWidth/2)-w/2)*gameScale, (imageHeight-(h/2))*gameScale, 'ani-s101-goldfish');
+        anigoldfish.setScale(gameScale).setDepth(80);
+        this.anims.create({
+            key: 'ani-s101-goldfish',
+            frames: this.anims.generateFrameNumbers('ani-s101-goldfish', { start: 0, end: 79 }),
+            frameRate: 10,
+            repeat: -1
+        });
+        anigoldfish.anims.play('ani-s101-goldfish', true);
         
         player = new Player(this);
         player.sprite.setDepth(80);
+
+        dialogBox = new DialogBox(this);
+        //進入場景3秒顯示對話框
+        this.time.delayedCall(3000, () => {
+            dialogBox.start('s101-01');
+        });     
     }
 
-    update()
+    update(time, delta)
     {
         player.update();
+        dialogBox.update(time, delta);
     }
 }

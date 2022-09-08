@@ -30,9 +30,9 @@ export default class Player {
         
         //計算初始位置
         let x = 240*gameScale*1.4375/2;
-        console.log(x);
+        //console.log(x);
         let y = 320*gameScale*1.4375*1.75;
-        console.log(y);
+        //console.log(y);
 
         let setY = 0;
         if(gameLevel == 2){

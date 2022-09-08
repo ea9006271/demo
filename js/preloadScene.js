@@ -40,18 +40,19 @@ export default class PreloadScene extends Phaser.Scene{
         this.load.image('dialog-kuso', 'assets/img/dialog-kuso.png');
         this.load.image('dialog-npc01', 'assets/img/dialog-npc01.png');
 
+        this.load.image('bag', 'assets/img/bag.png');
+
         //Player
         this.load.spritesheet('kuso', 'assets/kuso3d-act_v3.png', { frameWidth: 240, frameHeight: 320 });
 
-        this.load.image('ground', 'assets/img/platform.png');
 
         if(gameLevel == 0){
             //荷之門-1
             this.load.image('bg-s101-1', 'assets/bg/s01/s101-1.png');
             this.load.image('bg-s101-2', 'assets/bg/s01/s101-2.png');
             this.load.image('bg-s101-3', 'assets/bg/s01/s101-3.png');
-            this.load.image('bg-s101-4', 'assets/bg/s01/s101-4.png');
-            this.load.image('bg-green', 'assets/bg/s01/green.png');
+            this.load.image('bg-ground', 'assets/bg/s01/s1-ground.png');
+            this.load.image('bg-green', 'assets/bg/s01/s1-green.png');
         
             this.load.image('pic01', 'assets/bg/s01/pic01.png');
             this.load.image('pic02', 'assets/bg/s01/pic02.png');
@@ -61,17 +62,16 @@ export default class PreloadScene extends Phaser.Scene{
             this.load.spritesheet('ani-s101-2', 'assets/ani/s01/s101-2.png', { frameWidth: 394, frameHeight: 868 });
             this.load.spritesheet('ani-s101-3', 'assets/ani/s01/s101-3.png', { frameWidth: 634, frameHeight: 1076 });
             this.load.spritesheet('ani-s101-fish', 'assets/ani/s01/s101-fish.png', { frameWidth: 1080, frameHeight: 640 });
+            this.load.spritesheet('ani-s101-goldfish', 'assets/ani/s01/s101-goldfish.png', { frameWidth: 1080, frameHeight: 1080 });
             
             //荷之門-2
-            /*this.load.image('bg-s2-0', 'assets/bg/S1/s2-0.png');
-            this.load.image('bg-s2-1', 'assets/bg/S1/s2-1.png');
-            this.load.image('bg-s2-2', 'assets/bg/S1/s2-2.png');
-            this.load.image('bg-s2-3', 'assets/bg/S1/s2-3.png');
-            this.load.image('bg-s2-4', 'assets/bg/S1/s2-4.png');
+            this.load.image('bg-s102-1', 'assets/bg/s01/s102-1.png');
+            this.load.image('bg-s102-2', 'assets/bg/s01/s102-2.png');
+            this.load.image('bg-s102-3', 'assets/bg/s01/s102-3.png');
 
-            this.load.spritesheet('s2-001', 'assets/ani/S1/s2-001.png', { frameWidth: 640, frameHeight: 1080 });
-            this.load.spritesheet('s2-002', 'assets/ani/S1/s2-002.png', { frameWidth: 340, frameHeight: 822 });
-            this.load.spritesheet('s2-003', 'assets/ani/S1/s2-003.png', { frameWidth: 502, frameHeight: 580 });*/
+            this.load.spritesheet('ani-s102-1', 'assets/ani/s01/s102-1.png', { frameWidth: 640, frameHeight: 1080 });
+            this.load.spritesheet('ani-s102-2', 'assets/ani/s01/s102-2.png', { frameWidth: 340, frameHeight: 822 });
+            this.load.spritesheet('ani-s102-3', 'assets/ani/s01/s102-3.png', { frameWidth: 502, frameHeight: 580 });
         }
         else if(gameLevel == 1){
             //木之門-1

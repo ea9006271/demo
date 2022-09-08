@@ -38,19 +38,38 @@ export default class DialogBox{
 
         this.showMsg = false;
     }
-    show(){
-        this.text = "不知道玉如意在哪裡？";
+    start(id){
         this.index = 0;
-        this.timer = 0;
+        this.result = story.filter(el => {
+            return el['id'] === id;
+        });
+        if(this.result[0].content.length > 0){
+            this.show();
+            /*for(var i = 0; i < result[0].content.length; i++){
+            }*/
+        }
+        /*$.each(result[0].content, function(index, values) {
+            alert(values.words);
+        });*/
+    }
+    show(){
+        this.wordCounts = 0;//字數
+        this.timer = 0;        
+        this.words = this.result[0].content[this.index].words;
+        var avatar = this.result[0].content[this.index].avatar;
+        //console.log(this.words);
 
         // this 指稱的是所建立的 instance
         this.box.visible = true;
         this.btn.visible = true;
-        this.kuso.visible = true;
-        this.msg.visible = true;
+        if(avatar == 'kuso'){
+            this.kuso.visible = true;
+            this.npc01.visible = false;
+        }
         
+        this.msg.text = "";
+        this.msg.visible = true;
         this.showMsg = true;
-
     }
     update(time, delta){
         //console.log(delta);
@@ -63,11 +82,11 @@ export default class DialogBox{
         const delayTime = 100;
         this.timer += delta;
         while(this.timer > delayTime){
-            var words = this.msg.text;
-            const data = this.text.split('');
-            if(this.index < data.length){
-                words += data[this.index ++];
-                this.msg.text = words;
+            var text = this.msg.text;
+            const data = this.words.split('');
+            if(this.wordCounts < data.length){
+                text += data[this.wordCounts ++];
+                this.msg.text = text;
             }
             else
             {
@@ -78,7 +97,20 @@ export default class DialogBox{
     }
   
     next(){
-        this.close();
+        if(this.showMsg)
+            return;
+
+        this.index++;
+        if(this.index < this.result[0].content.length){
+            this.show();
+        }
+        else{        
+            this.close();
+            var nextAction = this.result[0].content[this.result[0].content.length-1].next;
+            if(nextAction[0] == 'load'){
+                loadScene(this.scene, nextAction[1]);
+            }
+        }
     }
     close(){
         this.box.visible = false;
