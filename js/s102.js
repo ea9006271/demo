@@ -1,3 +1,5 @@
+import DialogBox from './dialogBox.js';
+import Player from './player.js';
 export default class Scene2 extends Phaser.Scene
 {
     constructor()
@@ -49,5 +51,37 @@ export default class Scene2 extends Phaser.Scene
             repeat: -1
         });
         ani203.anims.play('ani-s102-3', true);
+
+        player = new Player(this);
+        player.sprite.setDepth(80);
+
+        dialogBox = new DialogBox(this);
+        w=130, h=110;
+        posX = imageWidth/2*gameScale;
+        posY = imageHeight/2*gameScale;
+        this.btnSpeak = this.add.tileSprite(posX, posY, w, h, 'speak').setScale(gameScale).setDepth(100);
+        //this.btnSpeak.visible = false;
+        this.btnSpeak.setInteractive({
+            useHandCursor: true
+        }).on('pointerdown', () => dialogBox.start('s102-01'));
+
+        w=286, h=344;
+        posX = imageWidth/2*1.3*gameScale;
+        posY = imageHeight/2*gameScale;
+        this.btnFlower = this.add.tileSprite(posX, posY, w, h, 'flower').setScale(gameScale).setDepth(100);
+        this.btnFlower.visible = false;
+        this.btnFlower.setInteractive({
+            useHandCursor: true
+        }).on('pointerdown', () => this.btnFlower_Click);
+    }
+
+    update(time, delta)
+    {
+        player.update();
+        dialogBox.update(time, delta);
+    }
+
+    btnFlower_Click(){
+
     }
 }

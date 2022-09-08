@@ -62,10 +62,69 @@ var story = [
             },
             {
                 "avatar" : "kuso",
-                "words" : "畫作有些部分不見了…發生什麼事了",
-                "next" : ["load", "scene2"]
+                "words" : "畫作有些部分不見了…發生什麼事了"
             }
-        ]
-        
+        ],
+        "next" : ["load", "scene2"]        
+    },
+    {
+        "id" : "s102-01",
+        "content" : [
+            {
+                "avatar" : "npc01",
+                "words" : "是酷獸啊，你怎麼在這邊呢？"
+            },
+            {
+                "avatar" : "kuso",
+                "words" : "原來是荷精靈，我正在找如意，請問你有看到嗎？"
+            },
+            {
+                "avatar" : "npc01",
+                "words" : "嗯...我不知道，抱歉沒能幫上忙"
+            },
+            {
+                "avatar" : "kuso",
+                "words" : "沒關係～"
+            },
+            {
+                "avatar" : "kuso",
+                "words" : "話說，你看起來比我更煩惱呢"
+            },
+            {
+                "avatar" : "npc01",
+                "words" : "唉...牆上的荷花畫作都亂掉了，該怎麼辦呢？"
+            },
+            {
+                "avatar" : "kuso",
+                "words" : "第一次看到荷精靈這麼煩惱..."
+            },
+            {
+                "avatar" : "kuso",
+                "words" : "我來幫忙吧！但我對荷花不是很熟..."
+            },
+            {
+                "avatar" : "npc01",
+                "words" : "真的嗎？謝謝你，就讓我來分享荷花的秘密吧！"                
+            }
+        ],
+        "next" : ["run", ""]        
+    },
+    {
+        "id" : "s102-02",
+        "content" :[
+            {
+                "avatar" : "npc01",
+                "words" : "太好了！你已經觀察到荷花不同部位的質感"
+            },
+            {
+                "avatar" : "npc01",
+                "words" : "這是質感錦囊，或許能幫你找到如意！"
+            },
+            {
+                "avatar" : "kuso",
+                "words" : "謝謝！那我就收下了"
+            }
+        ],
+        "next" : []
     }
 ];

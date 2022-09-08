@@ -72,6 +72,9 @@ export default class PreloadScene extends Phaser.Scene{
             this.load.spritesheet('ani-s102-1', 'assets/ani/s01/s102-1.png', { frameWidth: 640, frameHeight: 1080 });
             this.load.spritesheet('ani-s102-2', 'assets/ani/s01/s102-2.png', { frameWidth: 340, frameHeight: 822 });
             this.load.spritesheet('ani-s102-3', 'assets/ani/s01/s102-3.png', { frameWidth: 502, frameHeight: 580 });
+
+            this.load.image('speak', 'assets/img/speak.png');
+            this.load.image('flower', 'assets/img/flower.png');
         }
         else if(gameLevel == 1){
             //木之門-1

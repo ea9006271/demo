@@ -39,7 +39,7 @@ export default class DialogBox{
         this.showMsg = false;
     }
     start(id){
-        this.index = 0;
+        this.currentIndex = 0;
         this.result = story.filter(el => {
             return el['id'] === id;
         });
@@ -55,8 +55,8 @@ export default class DialogBox{
     show(){
         this.wordCounts = 0;//字數
         this.timer = 0;        
-        this.words = this.result[0].content[this.index].words;
-        var avatar = this.result[0].content[this.index].avatar;
+        this.words = this.result[0].content[this.currentIndex].words;
+        var avatar = this.result[0].content[this.currentIndex].avatar;
         //console.log(this.words);
 
         // this 指稱的是所建立的 instance
@@ -65,6 +65,10 @@ export default class DialogBox{
         if(avatar == 'kuso'){
             this.kuso.visible = true;
             this.npc01.visible = false;
+        }
+        else if(avatar == 'npc01'){
+            this.kuso.visible = false;
+            this.npc01.visible = true;
         }
         
         this.msg.text = "";
@@ -100,15 +104,25 @@ export default class DialogBox{
         if(this.showMsg)
             return;
 
-        this.index++;
-        if(this.index < this.result[0].content.length){
+        this.currentIndex++;
+        if(this.currentIndex < this.result[0].content.length){
             this.show();
         }
         else{        
             this.close();
-            var nextAction = this.result[0].content[this.result[0].content.length-1].next;
+            let nextAction = this.result[0].next;
+            let id = this.result[0].id;
             if(nextAction[0] == 'load'){
                 loadScene(this.scene, nextAction[1]);
+            }
+            else if(nextAction[0] == 'run'){
+                switch(id){
+                    case 's102-01':
+                        this.scene.btnSpeak.visible = false;
+                        this.scene.btnFlower.visible = true;
+                        break;
+                }
+                
             }
         }
     }
@@ -116,6 +130,7 @@ export default class DialogBox{
         this.box.visible = false;
         this.btn.visible = false;
         this.kuso.visible = false;
+        this.npc01.visible = false;
         this.msg.visible = false;
     }
 }
