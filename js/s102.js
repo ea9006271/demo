@@ -109,7 +109,8 @@ export default class Scene2 extends Phaser.Scene
             this.bagLight.visible = false;
         });
         this.time.delayedCall(1000, () => {
-            this.scene.start('scene1', {status:'paint'});
+            gameStatus = 'paint';
+            this.scene.start('scene1');
         });        
     }
 }

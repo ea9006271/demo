@@ -2,6 +2,7 @@ const imageWidth = 1920, imageHeight = 1080;
 var gameLevel = 0;
 var player;
 var dialogBox;
+var gameStatus = 'init';
 /*
 0 - 荷之門   - s101~s102
 1 - 木之門   - s201~s202

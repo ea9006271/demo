@@ -6,12 +6,11 @@ export default class Scene1 extends Phaser.Scene
     {
         super('scene1');
     }
-    
-    init(data)
+    /*init(data)
     {
         //console.log('init', data);
         this.status = data.status;
-    }
+    }*/
 
     create()
     {
@@ -108,13 +107,13 @@ export default class Scene1 extends Phaser.Scene
         player.sprite.setDepth(80);
 
         dialogBox = new DialogBox(this);
-        if(this.status == 'init'){
+        if(gameStatus == 'init'){
             //進入場景3秒顯示對話框
             this.time.delayedCall(3000, () => {
                 dialogBox.start('s101-01');
             });     
         }
-        else if(this.status == 'paint'){
+        else if(gameStatus == 'paint'){
             dialogBox.start('s103-01');
         }
     }

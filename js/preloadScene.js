@@ -118,6 +118,7 @@ export default class PreloadScene extends Phaser.Scene{
 
 	complete() {
 		console.log("COMPLETE!");
-        this.scene.start('scene1', {status:'init'});
+        //this.scene.start('scene1', {status:'init'}); //手機出錯
+        this.scene.start('scene1');
 	}
 }
