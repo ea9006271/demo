@@ -83,7 +83,7 @@ export default class Scene1 extends Phaser.Scene
     
         w=1080, h=640;
         anifish = this.physics.add.sprite((imageWidth-w/2)*gameScale, (imageHeight-(h/2))*gameScale, 'ani-s101-fish');
-        anifish.setScale(gameScale).setDepth(80);
+        anifish.setScale(gameScale).setDepth(45);
         this.anims.create({
             key: 'ani-s101-fish',
             frames: this.anims.generateFrameNumbers('ani-s101-fish', { start: 0, end: 79 }),
@@ -94,7 +94,7 @@ export default class Scene1 extends Phaser.Scene
 
         w=1080, h=1080;
         anigoldfish = this.physics.add.sprite(((imageWidth/2)-w/2)*gameScale, (imageHeight-(h/2))*gameScale, 'ani-s101-goldfish');
-        anigoldfish.setScale(gameScale).setDepth(80);
+        anigoldfish.setScale(gameScale).setDepth(45);
         this.anims.create({
             key: 'ani-s101-goldfish',
             frames: this.anims.generateFrameNumbers('ani-s101-goldfish', { start: 0, end: 79 }),

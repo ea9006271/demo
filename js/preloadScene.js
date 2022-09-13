@@ -80,26 +80,38 @@ export default class PreloadScene extends Phaser.Scene{
         }
         else if(gameLevel == 1){
             //木之門-1
+            this.load.image('bg-s201-1', 'assets/bg/s02/s201-1.png');
+            this.load.image('bg-s201-2', 'assets/bg/s02/s201-2.png');
+            this.load.image('bg-s201-3', 'assets/bg/s02/s201-3.png');
 
+            this.load.spritesheet('clound01', 'assets/ani/s02/clound01.png', { frameWidth: 1500, frameHeight: 550 });
+            this.load.spritesheet('clound02', 'assets/ani/s02/clound02.png', { frameWidth: 1500, frameHeight: 550 });
+            this.load.spritesheet('clound03', 'assets/ani/s02/clound03.png', { frameWidth: 1400, frameHeight: 500 });
+            this.load.spritesheet('clound04', 'assets/ani/s02/clound04.png', { frameWidth: 2400, frameHeight: 300 });
+            this.load.spritesheet('clound05', 'assets/ani/s02/clound05.png', { frameWidth: 1800, frameHeight: 350 });
+
+            //木之門-2
+            this.load.image('bg-s202-1', 'assets/bg/s02/s202-1.png');
+            this.load.image('bg-s202-2', 'assets/bg/s02/s202-2.png');
         }
         else if(gameLevel == 2){
             //竹之門-1
-            this.load.image('bg-s301-1', 'assets/bg/S3/s301-1.png');
-            this.load.image('bg-s301-2', 'assets/bg/S3/s301-2.png');
+            this.load.image('bg-s301-1', 'assets/bg/s03/s301-1.png');
+            this.load.image('bg-s301-2', 'assets/bg/s03/s301-2.png');
 
-            this.load.spritesheet('fan01', 'assets/ani/S3/s30101.png', { frameWidth: 434, frameHeight: 300 });
-            this.load.spritesheet('fan02', 'assets/ani/S3/s30102.png', { frameWidth: 646, frameHeight: 440 });
-            this.load.spritesheet('fan03', 'assets/ani/S3/s30103.png', { frameWidth: 418, frameHeight: 278 });
+            this.load.spritesheet('fan01', 'assets/ani/s03/s30101.png', { frameWidth: 434, frameHeight: 300 });
+            this.load.spritesheet('fan02', 'assets/ani/s03/s30102.png', { frameWidth: 646, frameHeight: 440 });
+            this.load.spritesheet('fan03', 'assets/ani/s03/s30103.png', { frameWidth: 418, frameHeight: 278 });
             
             //竹之門-2
-            this.load.spritesheet('fan04', 'assets/ani/S3/s30204.png', { frameWidth: 484, frameHeight: 366 });
-            this.load.spritesheet('fan05', 'assets/ani/S3/s30205.png', { frameWidth: 550, frameHeight: 452 });
+            this.load.spritesheet('fan04', 'assets/ani/s03/s30204.png', { frameWidth: 484, frameHeight: 366 });
+            this.load.spritesheet('fan05', 'assets/ani/s03/s30205.png', { frameWidth: 550, frameHeight: 452 });
 
-            this.load.image('bg-s302-1', 'assets/bg/S3/s302-1.png');
-            this.load.image('bg-s302-2', 'assets/bg/S3/s302-2.png');
-            this.load.image('bg-s302-3', 'assets/bg/S3/s302-3.png');
-            this.load.image('bg-s302-4', 'assets/bg/S3/s302-4.png');
-            this.load.image('bg-s302-5', 'assets/bg/S3/s302-5.png');
+            this.load.image('bg-s302-1', 'assets/bg/s03/s302-1.png');
+            this.load.image('bg-s302-2', 'assets/bg/s03/s302-2.png');
+            this.load.image('bg-s302-3', 'assets/bg/s03/s302-3.png');
+            this.load.image('bg-s302-4', 'assets/bg/s03/s302-4.png');
+            this.load.image('bg-s302-5', 'assets/bg/s03/s302-5.png');
         }
         else if(gameLevel == 3){
             //五瑞之門

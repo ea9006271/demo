@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>我與酷獸的大冒險</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap4-modal-fullscreen.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script>
+        //--建立觸控監聽，當瀏覽器開啟頁面時，觸控式螢幕幕觸發事件，進行音訊播放
+        document.addEventListener("touchstart", function() {
+            function audioAutoPlay() {
+                var audio = document.getElementById("audio");
+                audio.play();
+            }
+            audioAutoPlay();
+        });
+    </script>
+
+    <style></style>
+</head>
+
+<body>
+    <main class="home box">
+        <div id="content" class="info">
+            <div class="infoGoback zindex-7">
+                <a href="game.html"><img src="img/goBack.png" alt="" /></a>
+            </div>
+            <div class="infoBag zindex-6">
+                <img src="img/bag-x.png" class="infoBagtop" alt="" />
+                <img src="img/bag.png" alt="" />
+            </div>
+            <div class="infoMove zindex-7">
+                <img src="img/game01Move.png" alt="" />
+            </div>
+            <div class="chatboxAll zindex-5">
+                <div class="chatbox3">
+                    <div class="chatboxTop">
+                        <img src="img/game01.png" alt="" />
+                    </div>
+                    <div class="chatboxBottom">
+                        <p>
+                            數數看，荷花的花瓣有幾瓣?<br /> 荷花部分為粉紅色，少數為白荷。花瓣的數量依品種而異，花型屬單瓣者花瓣有17~21瓣，屬重瓣者有高達千片以上的品種喔!
+                        </p>
+                        <p class="chatboxBtn"><a href="#">▼</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="infoTitle zindex-3">
+                <img src="img/game01Title.png" alt="" />
+            </div>
+            <video poster="" id="movTxtAni" class="vid03 zindex-2" playsinline muted loop preload="metadata" autoplay="autoplay">
+          <!--
+            - Video needs to be muted, since Chrome 66+ will not autoplay video with sound.
+            WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+          <source src="mv/indexBg.webm" type="video/webm" />
+          <source src="#" type="video/mp4" />
+        </video>
+        </div>
+    </main>
+
+    <!-- partial -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/func.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+</body>
+
+</html>

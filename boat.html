@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龍舟</title>
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="js/func.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>    
+<script>
+    $(function(){
+        setCanvas();
+        var config = {
+            type: Phaser.AUTO,
+            width: canvasWidth,
+            height: canvasHeight,
+            autoCenter: Phaser.Scale.CENTER_BOTH,
+            transparent: false,
+            parent: "Content",
+            physics: {
+                default: "arcade",
+                arcade: {
+                    gravity: { y: 0 },
+                    debug: false
+                }
+            },
+            scene: {
+                preload: preload,
+                create: create,
+                update: update
+            }
+        };
+        var game = new Phaser.Game(config);    
+    });     
+    function preload() {
+        this.load.spritesheet('boat1', 'assets/ani/boatRight.png', { frameWidth: 1000, frameHeight: 800 });
+        this.load.spritesheet('boat2', 'assets/ani/boatLeft.png', { frameWidth: 1000, frameHeight: 800 });
+    }   
+    var boat;
+    function create(){
+        //設定背景圖原始寬高
+        let imageWidth = 1920, imageHeight = 1080;
+        let scale = canvasHeight / imageHeight;
+        console.log(scale);
+        let posX = imageWidth * scale / 2;
+        let posY = imageHeight * scale / 2;  
+ 
+        boat = this.physics.add.sprite((1920/2)*scale, (1080/2)*scale, 'boat1');
+        boat.setScale(scale).setDepth(55);
+        this.anims.create({
+            key: 'boat1',
+            frames: this.anims.generateFrameNumbers('boat1', { start: 0, end: 23 }),
+            frameRate: 12,
+            repeat: -1
+        });
+        boat.anims.play('boat1', true);       
+ 
+        boat = this.physics.add.sprite((1920/2)*scale, (1080/2)*scale, 'boat2');
+        boat.setScale(scale).setDepth(55);
+        this.anims.create({
+            key: 'boat2',
+            frames: this.anims.generateFrameNumbers('boat2', { start: 0, end: 23 }),
+            frameRate: 12,
+            repeat: -1
+        });
+        boat.anims.play('boat2', true);       
+        boat.visible = false;
+ 
+        this.input.keyboard.on('keydown-SPACE', () => {
+            boat.anims.play('boat1', true); 
+        });      
+        this.keys =this.input.keyboard.addKeys({ 
+            'left': Phaser.Input.Keyboard.KeyCodes.LEFT,
+            'right': Phaser.Input.Keyboard.KeyCodes.RIGHT,
+            'A': Phaser.Input.Keyboard.KeyCodes.A,
+            'D': Phaser.Input.Keyboard.KeyCodes.D
+        });          
+    }
+    function update(){
+        if (this.keys.left.isDown || this.keys.A.isDown) {
+            //sprite.body.setVelocityX(-speed);
+            //boat1.visible = false;
+            //boat2.visible = true;
+            boat.anims.play("boat2", true);
+        } else if (this.keys.right.isDown || this.keys.D.isDown) {
+            //sprite.body.setVelocityX(speed);
+            //sprite.anims.play("right", true);
+            //boat2.visible = false;
+            //boat1.visible = true;
+            boat.anims.play("boat1", true);
+        }
+    }
+
+ 
+</script>    
+</head>
+<body>
+    <div id="Content"></div>
+</body>
+</html>

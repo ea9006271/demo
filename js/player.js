@@ -1,7 +1,7 @@
 var moveRight = false, moveLeft = false;
 
 export default class Player {
-    constructor(scene) {
+    constructor(scene, setY) {
         this.scene = scene;
         //this.scene.physics.world.enable(this);
         //this.scene.add.existing(this);
@@ -34,10 +34,10 @@ export default class Player {
         let y = 320*gameScale*1.4375*1.75;
         //console.log(y);
 
-        let setY = 0;
-        if(gameLevel == 2){
-            setY = 100;
-        }
+        if(setY == null)
+        {
+            setY = 0;
+        }            
         this.sprite = scene.physics.add
             .sprite(x, y, "kuso", 0)//初始位置
             .setSize(120, 320)//碰撞器大小

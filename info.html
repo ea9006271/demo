@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>我與酷獸的大冒險</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap4-modal-fullscreen.css" />
+    <script>
+        //--建立觸控監聽，當瀏覽器開啟頁面時，觸控式螢幕幕觸發事件，進行音訊播放
+        document.addEventListener("touchstart", function() {
+            function audioAutoPlay() {
+                var audio = document.getElementById("audio");
+                audio.play();
+            }
+            audioAutoPlay();
+        });
+    </script>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            background: #000;
+        }
+        
+        .home {
+            width: 100%;
+            height: 100%;
+        }
+        /* Box styles */
+        
+        .box {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            /*水平置中*/
+            align-items: center;
+            /*垂直置中*/
+            border: 1px solid black;
+        }
+        
+        .box:after {
+            padding-top: 56.28%;
+            /*1:2 ratio*/
+            display: block;
+            content: "";
+        }
+        /* Style that should be applied to the box content */
+        
+        .info {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: url(./img/infobg.png);
+            background-size: cover;
+        }
+        
+        .infoTitle {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: 3;
+            display: inline-block;
+        }
+        
+        .infoTitle img {
+            width: 100%;
+            height: auto;
+            display: inline;
+        }
+        
+        .zindex-5 {
+            z-index: 5;
+        }
+        
+        .zindex-6 {
+            z-index: 6;
+        }
+        
+        .zindex-7 {
+            z-index: 999;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="loadpng"><img src="img/loading.png" alt="" /></div>
+    </div>
+    <main class="home box">
+        <video poster="" id="movTxtAni" class="vid03 zindex-2" playsinline muted loop preload="metadata" autoplay="autoplay">
+        <!--
+            - Video needs to be muted, since Chrome 66+ will not autoplay video with sound.
+            WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+        <source src="" type="video/webm" />
+        <source src="mv/home-info.mp4" type="video/mp4" />
+      </video>
+        <div id="content" class="info">
+            <div class="infoTitle">
+                <img src="img/infoTitle.png" alt="" />
+            </div>
+            <div class="infoTitle zindex-7">
+                <a href="index.html" class="">
+                    <img src="img/infoBtn.png" alt="" />
+                </a>
+            </div>
+            <div class="infoTitle zindex-5">
+                <img src="img/title.png" alt="" />
+            </div>
+            <div class="infoTitle">
+                <img src="img/infoStar.png" alt="" />
+            </div>
+        </div>
+    </main>
+
+    <!-- partial -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/func.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+
+    <script>
+        var loader = document.getElementById("preloader");
+
+        window.addEventListener("load", function() {
+            loader.style.display = "none";
+        });
+    </script>
+
+</body>
+
+</html>
