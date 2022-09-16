@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>我與酷獸的大冒險</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/bootstrap4-modal-fullscreen.css" />
     <link rel="stylesheet" href="css/style.css" />
 
@@ -30,7 +30,7 @@
             <nav class="menu">
                 <ul class="menu-list">
                     <li class="menu-item">
-                        <a class="menu-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">我與酷獸的大冒險</a
+                        <a class="menu-link" href="#" data-bs-toggle="modal" data-bs-target="#hamMenu">我與酷獸的大冒險</a
               >
             </li>
             <li class="menu-item">
@@ -47,11 +47,15 @@
           <source src="mv/indexBg.mp4" type="video/mp4" />
         </video>
             <div class="indexMenu zindex-3">
-                <a href="3/game.html" class="aMask1 zindex-7"></a>
-                <img src="img/m01.png" alt="" />
+                <a href="#" class="aMask1 zindex-7" data-bs-toggle="modal" data-bs-target="#tabMore"></a>
+                <img src="img/m01over.png" alt="" />
+                <a href="scene1.html" class="aMask2 zindex-7"></a>
                 <img src="img/m02.png" alt="" />
+                <a href="#" class="aMask3 zindex-7"></a>
                 <img src="img/m03.png" alt="" />
+                <a href="#" class="aMask4 zindex-7"></a>
                 <img src="img/m04.png" alt="" />
+                <a href="#" class="aMask5 zindex-7"></a>
                 <img src="img/m05.png" alt="" />
             </div>
             <div class="infoTitle">
@@ -60,7 +64,7 @@
             <div class="chatbox zindex-6">
                 <div class="chatbox2">
                     <p>
-                        得趕快找回碧玉如意！
+                        大家一起幫忙找回碧玉如意吧！
                     </p>
                     <p class="chatboxBtn">▼</p>
                 </div>
@@ -70,13 +74,13 @@
     <!-- Button trigger modal -->
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="hamMenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width: 80%">
             <div class="myModal2 modal-content ">
                 <div class="modal-header2">
                     <div class="ham-origin2 " data-bs-dismiss="modal" aria-label="Close">
-                        <div class="ham-bar ham-bar--top2"></div>
-                        <div class="ham-bar ham-bar--bottom2"></div>
+                        <div class="ham-bar2 ham-bar--top2"></div>
+                        <div class="ham-bar2 ham-bar--bottom2"></div>
                     </div>
                     <!-- <button
               type="button"
@@ -86,12 +90,12 @@
             ></button> -->
                 </div>
                 <div class="modal-body">
-                    <div class="bodyInfo">
+                    <div class="bodyInfo mCustomScrollbar" data-mcs-theme="dark">
                         <h1>我與酷獸的大冒險</h3>
-                            <p>館藏的碧玉如意為什麼不見？荷花池又為什麼變黑白？</p>
-                            <p>快跟著酷獸的腳步，一起搜集「美」的線索，找回碧玉如意吧！</p>
+                            <p>館藏碧玉如意為什麼失蹤？荷花池為什麼變黑白？</p>
+                            <p>快跟著酷獸一起進入神祕門，找尋「美」的線索，拿回碧玉如意吧！</p>
                             <p>
-                                本網站以「發現美是什麼」為核心目標，透過館藏、自然、人文不同領域，將美感構面六大面向融入遊戲探索歷程之中。透過線上任務解謎及遊戲體驗的過程，帶領玩家了解藏品中不同面向的生活知識，激發玩家學習與創新的能力。
+                                本網站以「發現美是什麼」為核心目標，從館藏（文史）、環境（自然）、生活（人）三大領域，將美感構面六大面向融入遊戲探索歷程之中。透過線上任務解謎及遊戲體驗的過程，帶領玩家了解藏品中不同面向的生活知識，推動自然與人文整合的在地知識，激發玩家學習與創新的能力。
                             </p>
                     </div>
                 </div>
@@ -99,13 +103,69 @@
         </div>
     </div>
 
-    <!-- partial -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/func.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+    <!-- Modal2 -->
+    <div class="modal fade" id="tabMore" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width: 80%">
+            <div class="modal-content  navtabBg ">
+                <div class="ham-origin3 " data-bs-dismiss="modal" aria-label="Close">
+                    <div class="ham-bar3 ham-bar--top3"></div>
+                    <div class="ham-bar3 ham-bar--bottom3"></div>
+                </div>
+                <div class="d-flex align-items-start navMore">
+                    <div class="nav flex-column tabMenu" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <button class="nav-link navMenu01 active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">自然學家怎麼說</button>
+                        <button class="nav-link navMenu02" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">人文學家怎麼說</button>
+                        <button class="nav-link navMenu03" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">博物館員怎說</button>
+                        <button class="nav-link navMenu04" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">美感構面</button>
+                    </div>
+                    <div class="tab-content tabContent" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                            <h3>分辨荷花與睡蓮</h3>
+                            <p>荷花和睡蓮傻傻分不清楚？可從兩者的葉子外型做判斷喔！</p>
+                            <p>荷花為挺水植物，花和葉會伸出水面，荷葉的表面上有許多覆蓋結晶蠟的凸起微粒，常可以看到水滴在荷葉上滾動；睡蓮則是浮水植物，葉片貼著水面，外型偏圓並有V型裂縫。</p>
+                            <p>下次到植物園，你就知道如何分辨他們囉！</p>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                            <h3>荷花的象徵</h3>
+                            <p>自古以來，荷花是受人們喜愛的花卉，常在文學或繪畫中見到其身影。一起來認識荷花的象徵意義吧！</p>
+                            <p>吉祥<br>古人稱荷花為花中君子，「出污泥而不染」，將其視為清白、高潔的象徵。</p>
+                            <p>高潔<br>吉祥畫常以「和合二仙」為主題，畫中一人手中持荷，一人捧盒，取和（荷）諧合（盒）好之諧音，「和合」即和睦同心、調和、順利等意。</p>
+                            <p>清廉<br>荷花即青蓮，青蓮與「清廉」諧音，因此荷花常被用以比喻在世途中為官清正。</p>
+                            <p>友誼<br>古人有春天折梅贈遠，秋天採蓮懷人的傳統，荷花也象徵著友誼。</p>
 
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                            <h3>博物館的荷花畫作</h3>
+                            <p>史博館坐擁優美的荷花池景致，有兩百多件與荷花相關的館藏，來欣賞不同畫家筆下的荷花畫作吧！</p>
+                            <p>不同的構圖、不同的配色，能展現不一樣的荷花之美喔！</p>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                            <h3>美感構面</h3>
+                            <p>當人們感受到一件物品或一個畫面很美，或許是它的「色彩」、「比例」、「質感」、「結構」、「構造」、「構成」等元素讓人們的視覺感受舒適愉悅。 在「教育部美感與設計課程創新計畫」中，將這些元素稱為「美感構面」，是通往美感的入口。
+                            </p>
+                            <p>質感<br>質感是以材料質地的呈現回應功能的想望。想想遊戲中荷花、荷葉、蓮藕表面不同的質感，你最喜歡哪一個呢？</p>
+                            <p>比例<br>比例是對畫面分割或形體輪廓產生比例調控的投射。想想在遊戲中，你與藝術家的荷花比例有什麼不同呢？</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- partial -->
+    <script src="js/popper.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/func.js"></script>
+    <script type="text/javascript" src="js/pagefunc.js"></script>
+    <script src="js/jquery-3.6.1.slim.min.js" type="text/javascript"></script>
+    <script src="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+    <script>
+        (function($) {
+            $(window).on("load", function() {
+                $(".content").mCustomScrollbar();
+            });
+        })(jQuery);
+    </script>
     <script>
         var loader = document.getElementById("preloader");
 

@@ -19,7 +19,7 @@ export default class DialogBox{
             useHandCursor: true
         }).on('pointerdown', () => this.next());
         
-        w = 225, h = 223;
+        w = 225, h = 225;
         x = (imageWidth*gameScale/2)-(1163/2-w/2)*gameScale*1.05;
         y = ((imageHeight-h/2)*0.965)*gameScale;
         this.kuso = scene.add.tileSprite(x, y, w, h, 'dialog-kuso').setScale(gameScale).setDepth(100);
@@ -27,11 +27,18 @@ export default class DialogBox{
 
         this.npc01 = scene.add.tileSprite(x, y, w, h, 'dialog-npc01').setScale(gameScale).setDepth(100);
         this.npc01.visible = false;
+        this.npc02 = scene.add.tileSprite(x, y, w, h, 'dialog-npc02').setScale(gameScale).setDepth(100);
+        this.npc02.visible = false;
+        this.npc03 = scene.add.tileSprite(x, y, w, h, 'dialog-npc03').setScale(gameScale).setDepth(100);
+        this.npc03.visible = false;
+        this.npc04 = scene.add.tileSprite(x, y, w, h, 'dialog-npc04').setScale(gameScale).setDepth(100);
+        this.npc04.visible = false;        
 
         let fsize = gameScale * 30;
         let fwidth = gameScale * 820;
         this.msg = scene.add.text(x*1.3, y*0.925, "", 
-            { fontSize: fsize, fontFamily: '微軟正黑體', 
+            { fontSize: fsize, fontFamily: 'cwTeXYen, sans-serif', 
+            //{ fontSize: fsize, fontFamily: 'BpmfZihiOnly-R', 
             fontWeight: 'bold', fill: '#000000',
             wordWrap: {width: fwidth, useAdvancedWrap: true} }).setDepth(100);
         this.msg.visible = false;
@@ -62,13 +69,43 @@ export default class DialogBox{
         // this 指稱的是所建立的 instance
         this.box.visible = true;
         this.btn.visible = true;
-        if(avatar == 'kuso'){
-            this.kuso.visible = true;
-            this.npc01.visible = false;
-        }
-        else if(avatar == 'npc01'){
-            this.kuso.visible = false;
-            this.npc01.visible = true;
+        switch(avatar)
+        {
+            case 'kuso':
+                this.kuso.visible = true;
+                this.npc01.visible = false;
+                this.npc02.visible = false;
+                this.npc03.visible = false;
+                this.npc04.visible = false;
+                break;
+            case 'npc01':
+                this.kuso.visible = false;
+                this.npc01.visible = true;
+                this.npc02.visible = false;
+                this.npc03.visible = false;
+                this.npc04.visible = false;                
+                break;
+            case 'npc02':
+                this.kuso.visible = false;
+                this.npc01.visible = false;
+                this.npc02.visible = true;
+                this.npc03.visible = false;
+                this.npc04.visible = false;                
+                break;
+            case 'npc03':
+                this.kuso.visible = false;
+                this.npc01.visible = false;
+                this.npc02.visible = false;
+                this.npc03.visible = true;
+                this.npc04.visible = false;                
+                break;
+            case 'npc04':
+                this.kuso.visible = false;
+                this.npc01.visible = false;
+                this.npc02.visible = false;
+                this.npc03.visible = false;
+                this.npc04.visible = true;                
+                break;                                        
         }
         
         this.msg.text = "";
@@ -115,19 +152,26 @@ export default class DialogBox{
             if(nextAction[0] == 'load'){
                 loadScene(this.scene, nextAction[1]);
             }
+            else if(nextAction[0] == 'url'){
+                location.href = webURL + nextAction[1];
+            }
             else if(nextAction[0] == 'run'){
+                //console.log(id);
                 switch(id){
                     case 's102-01':
                         this.scene.btnSpeak.visible = false;
                         this.scene.btnFlower.visible = true;
                         break;
                     case 's102-02':
-                        this.scene.btnFlower.visible = false;
-                        this.scene.btnSmallbag.visible = true;
+                        this.scene.getSmallbag();
+                        break;
+                    case 's103-02':
+                        this.scene.getSmallbag2();
                         break;
                 }
                 
             }
+            
         }
     }
     close(){

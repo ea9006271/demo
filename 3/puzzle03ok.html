@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>我與酷獸的大冒險</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap4-modal-fullscreen.css" />
+    <script>
+        //--建立觸控監聽，當瀏覽器開啟頁面時，觸控式螢幕幕觸發事件，進行音訊播放
+        document.addEventListener("touchstart", function() {
+            function audioAutoPlay() {
+                var audio = document.getElementById("audio");
+                audio.play();
+            }
+            audioAutoPlay();
+        });
+    </script>
+
+    <style></style>
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="loadpng"><img src="img/loading.png" alt="" /></div>
+    </div>
+    <main class="home box">
+        <div id="content" class="puzzle">
+            <div class="infoBag zindex-6">
+                <!-- <img src="img/bag-x.png" class="infoBagtop" alt="" /> -->
+                <img src="img/bag.png" alt="" />
+            </div>
+            <div class="puzzlebox zindex-5">
+                <div class="puzzleitem1">
+                    <div class="puzzleTitle">
+                        <!-- <img src="img/puzzleTitle.png" alt="" /> -->
+                        <div style="width: 50%">
+                            <span class="puTitle2">藝術家的比例</span>
+                        </div>
+                        <div style="width: 50%">
+                            <span class="puTitle2">你的比例</span>
+                        </div>
+                    </div>
+                    <div class="puzzleP">
+                        <!-- <img src="img/puzzle01v.png" alt="" class="puzzleV" /> -->
+                        <img src="img/puzzle03.jpg" alt="" style="height: 60%" />
+                        <img src="img/puzzle03p.jpg" alt="" style="height: 60%" />
+                    </div>
+                </div>
+                <div class="puzzleitem3">
+                    <h4>《荷花》趙松泉</h4>
+                    <p>
+                        這件是趙松泉的《荷花》，相較荷花和白鷺細緻的勾勒外型，荷葉則以大筆染墨，呈現灑脫感。 蓮蓬向右延伸，連結明艷動人的荷花和纖巧靈動的白鷺，兩者相得益彰，有「一路（鷺）連（蓮）升」的美好寓意。
+                    </p>
+                    <div class="puzzleBtn">
+                        <a href="../scene1.html?status=puzzle"><img src="img/puzzleBtn.png" alt="" class="puzzleBtn" /></a>
+                    </div>
+                </div>
+            </div>
+            <!-- <video
+          poster=""
+          id="movTxtAni"
+          class="vid03 zindex-2"
+          playsinline
+          muted
+          loop
+          preload="metadata"
+          autoplay="autoplay"
+        >
+    
+
+          <source src="mv/indexBg.webm" type="video/webm" />
+          <source src="#" type="video/mp4" />
+        </video> -->
+        </div>
+    </main>
+
+    <!-- partial -->
+    <script src="js/popper.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/func.js"></script>
+    <script type="text/javascript" src="js/pagefunc.js"></script>
+    <script src="js/jquery-3.6.1.slim.min.js" type="text/javascript"></script>
+    <script>
+        var loader = document.getElementById("preloader");
+
+        window.addEventListener("load", function() {
+            loader.style.display = "none";
+        });
+    </script>
+</body>
+
+</html>

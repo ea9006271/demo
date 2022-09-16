@@ -22,6 +22,7 @@ export default class Scene202 extends Phaser.Scene
         bagLight = this.add.tileSprite(posX, posY, w, h, 'bag-light').setScale(gameScale).setDepth(100);
         bagLight.visible = false;
 
+        /*
         var clound03, clound04;
         w=1400,h=500;
         posX = (w/2)*0.65*gameScale;
@@ -35,7 +36,7 @@ export default class Scene202 extends Phaser.Scene
             repeat: -1
         });
         clound03.anims.play('clound03', true);  
-     
+     */
         /*w=2400,h=300;
         posX = (imageWidth/2)*gameScale;
         posY = (imageHeight/2)*gameScale;
@@ -53,8 +54,17 @@ export default class Scene202 extends Phaser.Scene
         player.sprite.setDepth(80);
 
         dialogBox = new DialogBox(this);
-        this.input.keyboard.once('keydown-SPACE', () => {
+        this.input.keyboard.once('keydown-ONE', () => {
             loadScene(this, 'scene1');
+        });
+        this.input.keyboard.once('keydown-TWO', () => {
+            loadScene(this, 'scene2');
+        });
+        this.input.keyboard.once('keydown-THREE', () => {
+            loadScene(this, 'scene3');
+        });
+        this.input.keyboard.once('keydown-FOUR', () => {
+            loadScene(this, 'scene4');
         });
     }
 

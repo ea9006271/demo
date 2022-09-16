@@ -59,6 +59,9 @@ export default class Scene2 extends Phaser.Scene
         });
         ani203.anims.play('ani-s102-3', true);
 
+        this.audioClick = this.sound.add('audioClick');
+        this.audioBag = this.sound.add('audioBag');
+
         player = new Player(this);
         player.sprite.setDepth(80);
 
@@ -70,7 +73,7 @@ export default class Scene2 extends Phaser.Scene
         //this.btnSpeak.visible = false;
         this.btnSpeak.setInteractive({
             useHandCursor: true
-        }).on('pointerdown', () => dialogBox.start('s102-01'));
+        }).on('pointerdown', () => this.btnSpeak_Click());
 
         w=286, h=344;
         posX = imageWidth/2*1.3*gameScale;
@@ -86,9 +89,17 @@ export default class Scene2 extends Phaser.Scene
         posY = imageHeight/2*gameScale;
         this.btnSmallbag = this.add.tileSprite(posX, posY, w, h, 'smallbag').setScale(gameScale).setDepth(100);
         this.btnSmallbag.visible = false;
-        this.btnSmallbag.setInteractive({
-            useHandCursor: true
-        }).on('pointerdown', () => this.btnSmallbag_Click());
+
+        if(gameStatus == _status.flower)
+        {
+            if(checkGameLog('flower-1') && checkGameLog('flower-2') && checkGameLog('flower-3'))
+            {
+                this.btnSpeak.visible = false;
+                this.time.delayedCall(1000, () => {
+                    dialogBox.start('s102-02');
+                });
+            }
+        }
     }
 
     update(time, delta)
@@ -96,21 +107,30 @@ export default class Scene2 extends Phaser.Scene
         player.update();
         dialogBox.update(time, delta);
     }
-
+    btnSpeak_Click(){
+        this.audioClick.play();
+        dialogBox.start('s102-01')
+    }
     btnFlower_Click(){
+        this.audioClick.play();
         this.btnFlower.visible = false;
+        location.href = '3/game.html';
         //this.btnSmallbag.visible = true;
-        dialogBox.start('s102-02');
+        //dialogBox.start('s102-02');
     }
 
-    btnSmallbag_Click(){
+    getSmallbag(){
+        this.audioBag.play();
+        this.btnSmallbag.visible = true;
         this.bagLight.visible = true;
-        this.time.delayedCall(500, () => {
-            this.bagLight.visible = false;
-        });
         this.time.delayedCall(1000, () => {
-            gameStatus = 'paint';
-            this.scene.start('scene1');
-        });        
+            this.bagLight.visible = false;
+            this.btnSmallbag.visible = false;
+            this.time.delayedCall(1000, () => {
+                gameStatus = _status.paint;
+                loadScene(this, 'scene1');
+            });                 
+        });
+           
     }
 }

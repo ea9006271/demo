@@ -43,6 +43,13 @@ export default class Player {
             .setSize(120, 320)//碰撞器大小
             .setOffset(50, setY)//碰撞器位置
             .setScale(gameScale*1.4375); //縮放比例
+
+        let w=319, h=212;
+        x = w/2*gameScale;
+        y = imageHeight/2*gameScale;
+        this.scene.add.tileSprite(x, y, w, h, 'btnLeft').setScale(gameScale).setDepth(120);
+        x = (imageWidth-(w/2))*gameScale;
+        this.scene.add.tileSprite(x, y, w, h, 'btnRight').setScale(gameScale).setDepth(120);
         
         this.sprite.setCollideWorldBounds(true);//會碰撞遊戲世界的邊界
 
@@ -77,6 +84,8 @@ export default class Player {
     }
 
     update() {
+        if(gameStatus == _status.init)
+            return;
         const sprite = this.sprite;
         const prevVelocity = sprite.body.velocity.clone();
         sprite.body.setVelocity(0);        

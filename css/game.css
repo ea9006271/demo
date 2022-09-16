@@ -1,0 +1,11 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+
+body {
+    margin: 0;
+}
+
+@font-face {
+    font-family: "BpmfZihiOnly-R";
+    src: url('../assets/BpmfZihiOnly-R.ttf');
+}

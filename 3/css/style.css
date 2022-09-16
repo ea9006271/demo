@@ -2,453 +2,580 @@
 @import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
 html,
 body {
-    height: 100%;
-    width: 100%;
-    background: #000;
-    font-family: "Noto Sans TC", sans-serif;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  font-family: "Noto Sans TC", sans-serif;
 }
 
 .ham {
-    width: 70px;
-    height: 70px;
-    border-radius: 5px;
-    background: rgba(0, 0, 0, 0);
-    display: block;
-    position: relative;
-    z-index: 999;
+  width: 70px;
+  height: 70px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0);
+  display: block;
+  position: relative;
+  z-index: 999;
 }
 
 .ham-origin {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 999;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 999;
 }
 
 .ham-bar {
-    height: 4px;
-    width: 26px;
-    position: absolute;
-    background: rgb(41, 32, 173);
-    margin: 1px 0 0 -13px;
-    transition: all 0.5s;
+  height: 4px;
+  width: 26px;
+  position: absolute;
+  background: rgb(41, 32, 173);
+  margin: 1px 0 0 -13px;
+  transition: all 0.5s;
 }
 
 .ham-bar::after {
-    background: rgb(255, 255, 255);
+  background: rgb(255, 255, 255);
 }
 
 .ham-bar--top {
-    transform: translateY(-8px);
+  transform: translateY(-8px);
 }
 
 .ham-bar--bottom {
-    transform: translateY(8px);
+  transform: translateY(8px);
 }
 
 #nav-toggle {
-    display: none;
+  display: none;
 }
 
-#nav-toggle:checked~.ham .ham-bar--middle {
-    opacity: 0;
+#nav-toggle:checked ~ .ham .ham-bar--middle {
+  opacity: 0;
 }
 
-#nav-toggle:checked~.ham .ham-bar--top {
-    transform: rotate(-45deg);
-    background: #fff;
+#nav-toggle:checked ~ .ham .ham-bar--top {
+  transform: rotate(-45deg);
+  background: #fff;
 }
 
-#nav-toggle:checked~.ham .ham-bar--bottom {
-    transform: rotate(45deg);
-    background: #fff;
+#nav-toggle:checked ~ .ham .ham-bar--bottom {
+  transform: rotate(45deg);
+  background: #fff;
 }
-
 
 /* Nav Style */
 
 .menu {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    padding: 90px 20px 15px 20px;
-    background: rgba(150, 160, 180, 0.8);
-    /* 用 translate 把選單藏到畫面右邊去 */
-    transform: translateX(-100%);
-    transition: transform 0.5s;
-    z-index: 99;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  padding: 90px 20px 15px 20px;
+  background: rgba(150, 160, 180, 0.8);
+  /* 用 translate 把選單藏到畫面右邊去 */
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+  z-index: 99;
 }
 
-#nav-toggle:checked~.menu {
-    transform: none;
+#nav-toggle:checked ~ .menu {
+  transform: none;
 }
 
 .menu-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.menu-item+.menu-item {
-    margin-top: 0px;
+.menu-item + .menu-item {
+  margin-top: 0px;
 }
 
 .menu-item {
-    padding: 20px 40px;
-    border-top: 1px solid #fff;
+  padding: 20px 40px;
+  border-top: 1px solid #fff;
 }
 
 .menu-item:last-child {
-    border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #fff;
 }
 
 .menu-link {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
-
 
 /* Box styles */
 
 .box {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    display: inline-block;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    /*水平置中*/
-    align-items: center;
-    /*垂直置中*/
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  /*水平置中*/
+  align-items: center;
+  /*垂直置中*/
 }
 
 .box:after {
-    padding-top: 56.28%;
-    /*1:2 ratio*/
-    display: block;
-    content: "";
+  padding-top: 56.28%;
+  /*1:2 ratio*/
+  display: block;
+  content: "";
 }
 
 .chatbox {
-    position: absolute;
-    width: 100%;
-    height: 30%;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    /*水平置中*/
-    align-items: center;
-    /*垂直置中*/
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  /*水平置中*/
+  align-items: center;
+  /*垂直置中*/
 }
 
 .chatbox2 {
-    height: 100%;
-    width: 60%;
-    background-image: url(./img/chatboxBg.png);
-    background-size: cover;
-    left: 0;
-    bottom: 0;
+  height: 100%;
+  width: 60%;
+  background-image: url(./img/chatboxBg.png);
+  background-size: 100% 100%;
+  left: 0;
+  bottom: 0;
 }
 
 .chatbox2 p {
-    font-size: 1rem;
-    margin-top: 10%;
-    padding-left: 24%;
-    padding-right: 8%;
-    padding-bottom: 0;
-    margin-bottom: 0;
+  font-size: 1rem;
+  margin-top: 10%;
+  padding-left: 24%;
+  padding-right: 8%;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .chatbox2 p.chatboxBtn {
-    text-align: right;
-    margin: 0;
-    padding: 0;
-    padding-right: 8%;
-    color: rgb(29, 156, 135);
+  text-align: right;
+  margin: 0;
+  padding: 0;
+  padding-right: 8%;
+  color: rgb(29, 156, 135);
 }
 
 .chatboxAll {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    /*水平置中*/
-    align-items: center;
-    /*垂直置中*/
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  /*水平置中*/
+  align-items: center;
+  /*垂直置中*/
 }
 
 .chatbox3 {
-    position: relative;
-    width: 79%;
-    height: 100%;
-    left: 0;
-    bottom: 0;
+  position: relative;
+  width: 79%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
 }
 
 .chatboxTop {
-    position: absolute;
-    top: 1%;
-    left: 0;
-    width: 100%;
-    height: auto;
+  position: absolute;
+  top: 1%;
+  left: 0;
+  width: 100%;
+  height: auto;
 }
 
 .chatboxTop a.gameB01 {
-    position: absolute;
-    display: inline-block;
-    width: 16%;
-    height: 25%;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.2);
-    top: 20%;
-    left: 41%;
+  position: absolute;
+  display: inline-block;
+  width: 16%;
+  height: 25%;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  top: 20%;
+  left: 41%;
 }
 
 .chatboxTop a.gameB02 {
-    position: absolute;
-    display: inline-block;
-    width: 16%;
-    height: 25%;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.2);
-    top: 55%;
-    left: 50%;
+  position: absolute;
+  display: inline-block;
+  width: 16%;
+  height: 25%;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  top: 55%;
+  left: 50%;
 }
 
 .chatboxTop a.gameB03 {
-    position: absolute;
-    display: inline-block;
-    width: 6%;
-    height: 10%;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.2);
-    top: 44%;
-    left: 33%;
+  position: absolute;
+  display: inline-block;
+  width: 6%;
+  height: 10%;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  top: 44%;
+  left: 33%;
 }
 
 .chatboxTop .gameMask {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .chatboxTop img {
-    width: 100%;
+  width: 100%;
 }
 
 .chatboxBottom {
-    position: absolute;
-    background-image: url(../img/chatboxBg.png);
-    background-size: cover;
-    width: 100%;
-    height: 19%;
-    left: -2%;
-    bottom: 0;
-    margin-bottom: 3%;
+  position: absolute;
+  background-image: url(../img/chatboxBg.png);
+  background-size: 100% 100%;
+  width: 100%;
+  height: 19%;
+  left: -2%;
+  bottom: 0;
+  margin-bottom: 3%;
 }
 
 .chatboxBottom p {
-    font-size: 1.5rem;
-    margin-top: 2%;
-    padding-left: 7%;
-    padding-right: 8%;
-    padding-bottom: 0;
-    margin-bottom: 0;
-    color: #fff;
+  font-size: 1.5rem;
+  margin-top: 2%;
+  padding-left: 7%;
+  padding-right: 8%;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  color: #fff;
 }
 
 .chatboxBottom p.chatboxBtn {
-    text-align: right;
-    margin: 0;
-    padding: 0;
-    padding-right: 8%;
-    color: rgb(255, 255, 255);
+  text-align: right;
+  margin: 0;
+  padding: 0;
+  padding-right: 8%;
+  color: rgb(255, 255, 255);
 }
 
 .chatboxBottom p.chatboxBtn a {
-    color: #fff;
-    text-decoration: none;
+  color: #fff;
+  text-decoration: none;
 }
-
 
 /* Style that should be applied to the box content */
 
 .info {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-image: url(../img/gameBg.png);
-    background-size: cover;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url(../img/gameBg.png);
+  background-size: cover;
+  overflow: hidden;
+}
+
+.puzzle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #000;
+  overflow: hidden;
+}
+
+.puzzlebox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgba(14, 156, 109, 0.2);
+}
+
+.puzzleitem1 {
+  margin: 0;
+  height: 83%;
+  width: 90%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.puzzleitem2 {
+  width: 66%;
+  margin: 0;
+  height: 16%;
+  text-align: center;
+}
+.puzzleitem3 {
+  position: relative;
+  width: 70%;
+  margin: 0 0 2% 0;
+  height: 15%;
+  text-align: left;
+  background: url(../img/chatboxBg.png);
+  background-size: 100% 100%;
+  color: #fff;
+  padding: 1% 2% 1% 3%;
 }
 
 .infoGoback {
-    position: absolute;
-    width: 6%;
-    height: auto;
-    left: 0;
-    top: 8%;
+  position: absolute;
+  width: 6%;
+  height: auto;
+  left: 0;
+  top: 8%;
 }
 
 .infoGoback img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .infoBag {
-    position: absolute;
-    width: 13%;
-    height: auto;
-    right: 0;
-    bottom: 3%;
+  position: absolute;
+  width: 13%;
+  height: auto;
+  right: 0;
+  bottom: 3%;
 }
 
 .infoBag img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .infoMove {
-    position: absolute;
-    width: 15%;
-    height: auto;
-    right: 5%;
-    bottom: 16%;
-    animation-name: infomove;
-    animation-duration: 1s;
-    animation-delay: 4s;
-    animation-fill-mode: forwards;
+  position: absolute;
+  width: 15%;
+  height: auto;
+  right: 5%;
+  bottom: 16%;
+  animation-name: infomove;
+  animation-duration: 1s;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
 }
 
 .infoMove img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 @keyframes infomove {
-    0% {
-        right: 5%;
-        bottom: 16%;
-    }
-    100% {
-        right: 0px;
-        bottom: 10%;
-        opacity: 0;
-    }
+  0% {
+    right: 5%;
+    bottom: 16%;
+  }
+  100% {
+    right: 0px;
+    bottom: 10%;
+    opacity: 0;
+  }
 }
 
 .infoBagtop {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    animation-name: bagmove;
-    animation-duration: 5s;
-    /* animation-delay: 1s; */
-    animation-fill-mode: forwards;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  animation-name: bagmove;
+  animation-duration: 5s;
+  /* animation-delay: 1s; */
+  animation-fill-mode: forwards;
 }
 
 @keyframes bagmove {
-    0% {
-        opacity: 0;
-    }
-    20% {
-        opacity: 1;
-    }
-    70% {
-        opacity: 1;
-    }
-    95% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .infoTitle {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    bottom: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
 }
 
 .infoTitle img {
-    width: 100%;
-    height: 100%;
-    display: inline;
+  width: 100%;
+  height: 100%;
+  display: inline;
 }
 
 .vid03 {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    bottom: 0;
-    display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  display: inline-block;
 }
 
 .indexMenu {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    bottom: 0;
-    display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  display: inline-block;
 }
 
 .indexMenu img {
-    height: 97%;
-    width: auto;
-    display: inline-block;
+  height: 97%;
+  width: auto;
+  display: inline-block;
 }
 
 .zindex-2 {
-    z-index: 2;
+  z-index: 2;
 }
 
 .zindex-3 {
-    z-index: 3;
+  z-index: 3;
 }
 
 .zindex-4 {
-    z-index: 4;
+  z-index: 4;
 }
 
 .zindex-5 {
-    z-index: 5;
+  z-index: 5;
 }
 
 .zindex-6 {
-    z-index: 6;
+  z-index: 6;
 }
 
 .zindex-7 {
-    z-index: 999;
+  z-index: 999;
 }
 
 .loadpng {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .loadpng img {
-    width: 100px;
-    height: 100px;
-    animation: spin 2s linear infinite;
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+}
+.puzzleTitle {
+  width: 80%;
+  padding-top: 3%;
+  padding-bottom: 0%;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+  align-items: center;
+}
+.puzzleTitle img {
+  height: 35px;
+  width: auto;
+}
+.puTitle {
+  background: #fff;
+  border-radius: 1.2rem;
+  color: #000;
+  font-size: 1.2rem;
+  ont-family: "cwTeXYen", sans-serif;
+  padding: 0.1rem 3%;
+  letter-spacing: 0.1em;
+}
+.puTitle2 {
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: "cwTeXYen", sans-serif;
+  letter-spacing: 0.1em;
+}
+.puzzleitem1 p {
+  font-size: 1rem;
+  font-family: "cwTeXYen", sans-serif;
+  padding: 1% 0 0 0;
+  margin: 0;
+  color: #fff;
+}
+.puzzleitem2 img {
+  height: 100%;
+}
+.puzzleP {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 80%;
+  justify-content: center;
+  align-items: center;
+}
+.puzzleP img {
+  height: 92%;
+  width: auto;
+  margin: 0 1%;
+}
+.puzzleV {
+  position: absolute;
+  top: 25%;
+  left: 40%;
+}
+img.puzzleV {
+  height: 30%;
+}
+.puzzleitem3 h4 {
+  font-family: "cwTeXYen", sans-serif;
+  font-size: 1.6rem;
+  padding: 0;
+  margin: 0;
+}
+.puzzleBtn {
+  width: 100%;
+  height: 35%;
+  position: absolute;
+  right: 4%;
+  bottom: -10%;
+  z-index: 99;
+}
+img.puzzleBtn {
+  height: 100%;
+  width: auto;
 }

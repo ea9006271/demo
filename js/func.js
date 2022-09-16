@@ -1,10 +1,22 @@
+var webURL = window.location.href;
+webURL = webURL.substring(0, webURL.lastIndexOf('/'));
 const imageWidth = 1920, imageHeight = 1080;
 var gameLevel = 0;
 var player;
 var dialogBox;
-var gameStatus = 'init';
+
+const _status = Object.freeze({
+    init: 'init',
+    start: 'start',
+    playing: 'playing',
+    flower: 'flower',
+    paint: 'paint',
+    puzzle: 'puzzle'
+});
+var gameStatus = _status.init;
+
 /*
-0 - 荷之門   - s101~s102
+0 - 荷之門   - s101~s102 init -> start -> playing -> dialogBox -> 場景二 -> dialogBox -> flower -> paint -> puzzle
 1 - 木之門   - s201~s202
 2 - 竹之門   - s301~s302
 3 - 五瑞之門 - s401~s402
@@ -16,6 +28,11 @@ var speed = 175;
 if(!isMobile){
     speed*=1.5;
 }
+window.onload = function () {
+    var status = getParameterByName('status');
+    if(status != '' && status != null)
+        gameStatus = status;
+};
 
 function loadScene(scene, name){
     scene.physics.pause();//先暫停否則會連續觸發
@@ -49,93 +66,72 @@ function setCanvas() {
     //console.log(canvasHeight);
 }
 
-window.onload = function () {
-
-};
-
-var story = [
-    {
-        "id" : "s101-01",
-        "content" : [
-            {
-                "avatar" : "kuso",
-                "words" : "不知道如意在哪裡？"
-            },
-            {
-                "avatar" : "kuso",
-                "words" : "畫作有些部分不見了…發生什麼事了"
-            }
-        ],
-        "next" : ["load", "scene2"]        
-    },
-    {
-        "id" : "s102-01",
-        "content" : [
-            {
-                "avatar" : "npc01",
-                "words" : "是酷獸啊，你怎麼在這邊呢？"
-            },
-            {
-                "avatar" : "kuso",
-                "words" : "原來是荷精靈，我正在找如意，請問你有看到嗎？"
-            },
-            {
-                "avatar" : "npc01",
-                "words" : "嗯...我不知道，抱歉沒能幫上忙"
-            },
-            {
-                "avatar" : "kuso",
-                "words" : "沒關係～"
-            },
-            {
-                "avatar" : "kuso",
-                "words" : "話說，你看起來比我更煩惱呢"
-            },
-            {
-                "avatar" : "npc01",
-                "words" : "唉...牆上的荷花畫作都亂掉了，該怎麼辦呢？"
-            },
-            {
-                "avatar" : "kuso",
-                "words" : "第一次看到荷精靈這麼煩惱..."
-            },
-            {
-                "avatar" : "kuso",
-                "words" : "我來幫忙吧！但我對荷花不是很熟..."
-            },
-            {
-                "avatar" : "npc01",
-                "words" : "真的嗎？謝謝你，就讓我來分享荷花的秘密吧！"                
-            }
-        ],
-        "next" : ["run", ""]        
-    },
-    {
-        "id" : "s102-02",
-        "content" :[
-            {
-                "avatar" : "npc01",
-                "words" : "太好了！你已經觀察到荷花不同部位的質感"
-            },
-            {
-                "avatar" : "npc01",
-                "words" : "這是質感錦囊，或許能幫你找到如意！"
-            },
-            {
-                "avatar" : "kuso",
-                "words" : "謝謝！那我就收下了"
-            }
-        ],
-        "next" : ["run", ""]
-    },
-    {
-        "id" : "s103-01",
-        "content" :[
-            {
-                "avatar" : "npc01",
-                "words" : "接下來，請把獲得的荷花部件，歸回畫作裡吧！"
-            }
-        ],
-        "next" : ["run", ""]
+function parseCookie() {
+    var cookieObj = {};
+    var cookieAry = document.cookie.split(';');
+    var cookie;
+    
+    for (var i=0, l=cookieAry.length; i<l; ++i) {
+        cookie = jQuery.trim(cookieAry[i]);
+        cookie = cookie.split('=');
+        cookieObj[cookie[0]] = cookie[1];
     }
-];
+    
+    return cookieObj;
+}
+function getCookie(name) {
+    var value = parseCookie()[name];
+    if (value) {
+        value = decodeURIComponent(value);
+    }
+    return value;
+}
+function setCookie(cname, cvalue) {
+    const exdays = 1;
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + encodeURIComponent(cvalue) + ";" + expires + ";SameSite=Strict;path=/";
+}
+function delCookie(name){
+    document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+function setGameLog(key){
+    var logs = getCookie('gameLog');
+    if(logs == null){
+        logs = '';
+    }
+    var result = false;
+    $.each(logs.split('|'), function(index, value){
+        if(key == value){
+            result = true;
+            return false;
+        }
+    });
+    if(!result){
+        logs += key + '|';
+    }
+    setCookie('gameLog', logs);
+}
+function checkGameLog(key){
+    var logs = getCookie('gameLog');
+    if(logs == null){
+        logs = '';
+    }
+    var result = false;
+    $.each(logs.split('|'), function(index, value){
+        if(key == value){
+            result = true;
+            return false;
+        }
+    });
+    return result;
+}
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
