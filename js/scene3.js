@@ -1,12 +1,10 @@
 import PreloadScene from './preloadScene.js';
-import StartScene from './startScene.js';
 import Scene1 from './s301.js';
 import Scene2 from './s302.js';
 $(function(){
-    gameLevel = 2;
+    gameLevel = _level.L3;
     setCanvas();
     var preloadScene = new PreloadScene();
-    var startScene = new StartScene();
     var scene1 = new Scene1();
     var scene2 = new Scene2();
     var config = {
@@ -26,7 +24,6 @@ $(function(){
     };
     var game = new Phaser.Game(config);  
     game.scene.add('preloadScene', preloadScene);
-    game.scene.add('startScene', startScene);
     game.scene.add('scene1', scene1);    
     game.scene.add('scene2', scene2);   
     game.scene.start('preloadScene');     

@@ -56,8 +56,11 @@ export default class Scene302 extends Phaser.Scene
         player.sprite.setDepth(80);
 
         dialogBox = new DialogBox(this);
-        this.input.keyboard.once('keydown-SPACE', () => {
+        this.input.keyboard.once('keydown-ONE', () => {
             loadScene(this, 'scene1');
+        });
+        this.input.keyboard.once('keydown-TWO', () => {
+            loadScene(this, 'scene2');
         });
     }
 

@@ -14,7 +14,7 @@ export default class Scene202 extends Phaser.Scene
         this.add.tileSprite(posX, posY, imageWidth, imageHeight, 'bg-s202-1').setScale(gameScale).setDepth(50);
         this.add.tileSprite(posX, posY, imageWidth, imageHeight, 'bg-s202-2').setScale(gameScale).setDepth(0);
 
-        var bag, bagLight;
+        var bag, bagLight, dougong;
         let w = 224, h = 224;
         posX = (imageWidth-(w/2))*gameScale;
         posY =  (imageHeight-(h/2))*gameScale;
@@ -22,34 +22,30 @@ export default class Scene202 extends Phaser.Scene
         bagLight = this.add.tileSprite(posX, posY, w, h, 'bag-light').setScale(gameScale).setDepth(100);
         bagLight.visible = false;
 
-        /*
-        var clound03, clound04;
-        w=1400,h=500;
-        posX = (w/2)*0.65*gameScale;
-        posY = (imageHeight/2)*1.5*gameScale;
-        clound03 = this.physics.add.sprite(posX, posY, 'clound03');
-        clound03.setScale(gameScale).setDepth(40);
-        this.anims.create({
-            key: 'clound03',
-            frames: this.anims.generateFrameNumbers('clound03', { start: 0, end: 79 }),
-            frameRate: 10,
-            repeat: -1
-        });
-        clound03.anims.play('clound03', true);  
-     */
-        /*w=2400,h=300;
-        posX = (imageWidth/2)*gameScale;
-        posY = (imageHeight/2)*gameScale;
-        clound04 = this.physics.add.sprite(posX, posY, 'clound04');
-        clound04.setScale(gameScale).setDepth(70);
-        this.anims.create({
-            key: 'clound04',
-            frames: this.anims.generateFrameNumbers('clound04', { start: 0, end: 39 }),
-            frameRate: 10,
-            repeat: -1
-        });
-        clound04.anims.play('clound04', true);  */
+        w=210, h=216;
+        posX = (imageWidth-(w/2)*2)*gameScale;
+        posY =  h/2*1.5*gameScale;
+        dougong = this.add.tileSprite(posX, posY, w, h, 'dougong').setScale(gameScale).setDepth(100);
+
+        w=1089, h=250;
+        posX = (imageWidth-(w/2))*gameScale;
+        posY = (imageHeight-(h/2))*gameScale;
+        var clound4 = this.add.tileSprite(posX, posY, w, h, 'clound4').setScale(gameScale).setDepth(70);
         
+        var clound3;
+        w=700,h=450;
+        posX = w/2*0.85*gameScale;
+        posY = (imageHeight/2)*1.5*gameScale;
+        clound3 = this.physics.add.sprite(posX, posY, 'clound3');
+        clound3.setScale(gameScale).setDepth(40);
+        this.anims.create({
+            key: 'clound3',
+            frames: this.anims.generateFrameNumbers('clound3', { start: 0, end: 63 }),
+            frameRate: 15,
+            repeat: -1
+        });
+        clound3.anims.play('clound3', true);  
+             
         player = new Player(this, 170);
         player.sprite.setDepth(80);
 

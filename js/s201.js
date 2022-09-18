@@ -1,5 +1,6 @@
 import DialogBox from './dialogBox.js';
 import Player from './player.js';
+import StartBox from './startBox.js';
 export default class Scene201 extends Phaser.Scene
 {
     constructor()
@@ -80,6 +81,10 @@ export default class Scene201 extends Phaser.Scene
         
         player = new Player(this, 170);
         player.sprite.setDepth(80);
+
+        if(gameStatus == _status.init){
+            var startBox = new StartBox(this);
+        }
 
         dialogBox = new DialogBox(this);
         this.input.keyboard.once('keydown-ONE', () => {

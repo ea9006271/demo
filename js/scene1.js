@@ -2,7 +2,7 @@ import PreloadScene from './preloadScene.js';
 import Scene1 from './s101.js';
 import Scene2 from './s102.js';
 $(function(){
-    gameLevel = 0;
+    gameLevel = _level.L1;
     setCanvas();
     var preloadScene = new PreloadScene();
     var scene1 = new Scene1();

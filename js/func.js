@@ -1,9 +1,15 @@
 var webURL = window.location.href;
 webURL = webURL.substring(0, webURL.lastIndexOf('/'));
 const imageWidth = 1920, imageHeight = 1080;
-var gameLevel = 0;
 var player;
 var dialogBox;
+const _level = Object.freeze({
+    L1 : 0,
+    L2 : 1,
+    L3 : 2,
+    L4 : 3
+});
+var gameLevel = _level.L1;
 
 const _status = Object.freeze({
     init: 'init',

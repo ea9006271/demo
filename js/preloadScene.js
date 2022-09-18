@@ -59,89 +59,118 @@ export default class PreloadScene extends Phaser.Scene{
         this.load.audio('audioClick', ['assets/sound/click.mp3']);
         this.load.audio('audioBag', ['assets/sound/bag.mp3']);
 
-        if(gameLevel == 0){
-            //荷之門-1
-            this.load.image('bg-s101-1', 'assets/bg/s01/s101-1.png');
-            this.load.image('bg-s101-2', 'assets/bg/s01/s101-2.png');
-            this.load.image('bg-s101-3', 'assets/bg/s01/s101-3.png');
-            this.load.image('bg-ground', 'assets/bg/s01/s1-ground.png');
-            this.load.image('bg-green', 'assets/bg/s01/s1-green.png');
-        
-            this.load.image('pic01', 'assets/bg/s01/pic01.png');
-            this.load.image('pic02', 'assets/bg/s01/pic02.png');
-            this.load.image('pic03', 'assets/bg/s01/pic03.png');
-            this.load.image('pic01-fin', 'assets/bg/s01/pic01-fin.png');
-            this.load.image('pic02-fin', 'assets/bg/s01/pic02-fin.png');
-            this.load.image('pic03-fin', 'assets/bg/s01/pic03-fin.png');
-
-            this.load.spritesheet('ani-s101-1', 'assets/ani/s01/s101-1.png', { frameWidth: 466, frameHeight: 454 });
-            this.load.spritesheet('ani-s101-2', 'assets/ani/s01/s101-2.png', { frameWidth: 394, frameHeight: 868 });
-            this.load.spritesheet('ani-s101-3', 'assets/ani/s01/s101-3.png', { frameWidth: 634, frameHeight: 1076 });
-            this.load.spritesheet('ani-s101-fish', 'assets/ani/s01/s101-fish.png', { frameWidth: 1080, frameHeight: 640 });
-            this.load.spritesheet('ani-s101-goldfish', 'assets/ani/s01/s101-goldfish.png', { frameWidth: 1080, frameHeight: 1080 });
+        switch(gameLevel){
+            case _level.L1:
+                //荷之門-1
+                this.load.image('bg-s101-1', 'assets/bg/s01/s101-1.png');
+                this.load.image('bg-s101-2', 'assets/bg/s01/s101-2.png');
+                this.load.image('bg-s101-3', 'assets/bg/s01/s101-3.png');
+                this.load.image('bg-ground', 'assets/bg/s01/s1-ground.png');
+                this.load.image('bg-green', 'assets/bg/s01/s1-green.png');
             
-            //荷之門-2
-            this.load.image('bg-s102-1', 'assets/bg/s01/s102-1.png');
-            this.load.image('bg-s102-2', 'assets/bg/s01/s102-2.png');
-            this.load.image('bg-s102-3', 'assets/bg/s01/s102-3.png');
+                this.load.image('pic01', 'assets/bg/s01/pic01.png');
+                this.load.image('pic02', 'assets/bg/s01/pic02.png');
+                this.load.image('pic03', 'assets/bg/s01/pic03.png');
+                this.load.image('pic01-fin', 'assets/bg/s01/pic01-fin.png');
+                this.load.image('pic02-fin', 'assets/bg/s01/pic02-fin.png');
+                this.load.image('pic03-fin', 'assets/bg/s01/pic03-fin.png');
 
-            this.load.spritesheet('ani-s102-1', 'assets/ani/s01/s102-1.png', { frameWidth: 640, frameHeight: 1080 });
-            this.load.spritesheet('ani-s102-2', 'assets/ani/s01/s102-2.png', { frameWidth: 340, frameHeight: 822 });
-            this.load.spritesheet('ani-s102-3', 'assets/ani/s01/s102-3.png', { frameWidth: 502, frameHeight: 580 });
+                this.load.spritesheet('ani-s101-1', 'assets/ani/s01/s101-1.png', { frameWidth: 466, frameHeight: 454 });
+                this.load.spritesheet('ani-s101-2', 'assets/ani/s01/s101-2.png', { frameWidth: 394, frameHeight: 868 });
+                this.load.spritesheet('ani-s101-3', 'assets/ani/s01/s101-3.png', { frameWidth: 634, frameHeight: 1076 });
+                this.load.spritesheet('ani-s101-fish', 'assets/ani/s01/s101-fish.png', { frameWidth: 1080, frameHeight: 640 });
+                this.load.spritesheet('ani-s101-goldfish', 'assets/ani/s01/s101-goldfish.png', { frameWidth: 1080, frameHeight: 1080 });
+                
+                //荷之門-2
+                this.load.image('bg-s102-1', 'assets/bg/s01/s102-1.png');
+                this.load.image('bg-s102-2', 'assets/bg/s01/s102-2.png');
+                this.load.image('bg-s102-3', 'assets/bg/s01/s102-3.png');
 
-            this.load.image('speak', 'assets/img/speak.png');
-            this.load.image('flower', 'assets/img/flower.png');
-            this.load.image('smallbag', 'assets/img/smallbag.png');//質感錦囊
-            this.load.image('eye', 'assets/img/eye.png');
-            this.load.image('smallbag2', 'assets/img/smallbag2.png');//比例錦囊
-        }
-        else if(gameLevel == 1){
-            //木之門-1
-            this.load.image('bg-s201-1', 'assets/bg/s02/s201-1.png');
-            this.load.image('bg-s201-2', 'assets/bg/s02/s201-2.png');
-            this.load.image('bg-s201-3', 'assets/bg/s02/s201-3.png');
+                this.load.spritesheet('ani-s102-1', 'assets/ani/s01/s102-1.png', { frameWidth: 640, frameHeight: 1080 });
+                this.load.spritesheet('ani-s102-2', 'assets/ani/s01/s102-2.png', { frameWidth: 340, frameHeight: 822 });
+                this.load.spritesheet('ani-s102-3', 'assets/ani/s01/s102-3.png', { frameWidth: 502, frameHeight: 580 });
 
-            this.load.image('clound1', 'assets/ani/s02/clound1.png');
-            this.load.image('clound2', 'assets/ani/s02/clound2.png');
-/*
-            this.load.spritesheet('clound01', 'assets/ani/s02/clound01.png', { frameWidth: 1500, frameHeight: 550 });
-            this.load.spritesheet('clound02', 'assets/ani/s02/clound02.png', { frameWidth: 1500, frameHeight: 550 });
-            this.load.spritesheet('clound03', 'assets/ani/s02/clound03.png', { frameWidth: 1400, frameHeight: 500 });
-            this.load.spritesheet('clound04', 'assets/ani/s02/clound04.png', { frameWidth: 2400, frameHeight: 300 });
-            this.load.spritesheet('clound05', 'assets/ani/s02/clound05.png', { frameWidth: 1800, frameHeight: 350 });
-*/
-            //木之門-2
-            this.load.image('bg-s202-1', 'assets/bg/s02/s202-1.png');
-            this.load.image('bg-s202-2', 'assets/bg/s02/s202-2.png');
-            //木之門-3
-            this.load.image('bg-s203-1', 'assets/bg/s02/s203-1.png');
-            this.load.image('bg-s203-2', 'assets/bg/s02/s203-2.png');
-            //木之門-4
-            this.load.image('bg-s204-1', 'assets/bg/s02/s204-1.png');
-            this.load.image('bg-s204-2', 'assets/bg/s02/s204-2.png');
-            this.load.image('bg-s204-3', 'assets/bg/s02/s204-3.png');
-        }
-        else if(gameLevel == 2){
-            //竹之門-1
-            this.load.image('bg-s301-1', 'assets/bg/s03/s301-1.png');
-            this.load.image('bg-s301-2', 'assets/bg/s03/s301-2.png');
+                this.load.image('speak', 'assets/img/speak.png');
+                this.load.image('flower', 'assets/img/flower.png');
+                this.load.image('smallbag', 'assets/img/smallbag.png');//質感錦囊
+                this.load.image('eye', 'assets/img/eye.png');
+                this.load.image('smallbag2', 'assets/img/smallbag2.png');//比例錦囊
+                break;
+            case _level.L2:
+                //木之門-1
+                this.load.image('bg-s201-1', 'assets/bg/s02/s201-1.png');
+                this.load.image('bg-s201-2', 'assets/bg/s02/s201-2.png');
+                this.load.image('bg-s201-3', 'assets/bg/s02/s201-3.png');
 
-            this.load.spritesheet('fan01', 'assets/ani/s03/s30101.png', { frameWidth: 434, frameHeight: 300 });
-            this.load.spritesheet('fan02', 'assets/ani/s03/s30102.png', { frameWidth: 646, frameHeight: 440 });
-            this.load.spritesheet('fan03', 'assets/ani/s03/s30103.png', { frameWidth: 418, frameHeight: 278 });
-            
-            //竹之門-2
-            this.load.spritesheet('fan04', 'assets/ani/s03/s30204.png', { frameWidth: 484, frameHeight: 366 });
-            this.load.spritesheet('fan05', 'assets/ani/s03/s30205.png', { frameWidth: 550, frameHeight: 452 });
+                this.load.image('clound1', 'assets/ani/s02/clound1.png');
+                this.load.image('clound2', 'assets/ani/s02/clound2.png');
+                this.load.image('clound4', 'assets/ani/s02/clound4.png');
+                
+                this.load.spritesheet('clound3', 'assets/ani/s02/clound3.png', { frameWidth: 700, frameHeight: 450 });
+                this.load.spritesheet('clound5', 'assets/ani/s02/clound5.png', { frameWidth: 600, frameHeight: 300 });
 
-            this.load.image('bg-s302-1', 'assets/bg/s03/s302-1.png');
-            this.load.image('bg-s302-2', 'assets/bg/s03/s302-2.png');
-            this.load.image('bg-s302-3', 'assets/bg/s03/s302-3.png');
-            this.load.image('bg-s302-4', 'assets/bg/s03/s302-4.png');
-            this.load.image('bg-s302-5', 'assets/bg/s03/s302-5.png');
-        }
-        else if(gameLevel == 3){
-            //五瑞之門
+                //木之門-2
+                this.load.image('bg-s202-1', 'assets/bg/s02/s202-1.png');
+                this.load.image('bg-s202-2', 'assets/bg/s02/s202-2.png');
+                this.load.image('dougong', 'assets/img/dougong.png');
+                //木之門-3
+                this.load.image('bg-s203-1', 'assets/bg/s02/s203-1.png');
+                this.load.image('bg-s203-2', 'assets/bg/s02/s203-2.png');
+                //木之門-4
+                this.load.image('bg-s204-1', 'assets/bg/s02/s204-1.png');
+                this.load.image('bg-s204-2', 'assets/bg/s02/s204-2.png');
+                this.load.image('bg-s204-3', 'assets/bg/s02/s204-3.png');
+                break;
+            case _level.L3:
+                //竹之門-1
+                this.load.image('bg-s301-1', 'assets/bg/s03/s301-1.png');
+                this.load.image('bg-s301-2', 'assets/bg/s03/s301-2.png');
+
+                this.load.spritesheet('fan01', 'assets/ani/s03/s30101.png', { frameWidth: 434, frameHeight: 300 });
+                this.load.spritesheet('fan02', 'assets/ani/s03/s30102.png', { frameWidth: 646, frameHeight: 440 });
+                this.load.spritesheet('fan03', 'assets/ani/s03/s30103.png', { frameWidth: 418, frameHeight: 278 });
+                
+                //竹之門-2
+                this.load.spritesheet('fan04', 'assets/ani/s03/s30204.png', { frameWidth: 484, frameHeight: 366 });
+                this.load.spritesheet('fan05', 'assets/ani/s03/s30205.png', { frameWidth: 550, frameHeight: 452 });
+
+                this.load.image('bg-s302-1', 'assets/bg/s03/s302-1.png');
+                this.load.image('bg-s302-2', 'assets/bg/s03/s302-2.png');
+                this.load.image('bg-s302-3', 'assets/bg/s03/s302-3.png');
+                this.load.image('bg-s302-4', 'assets/bg/s03/s302-4.png');
+                this.load.image('bg-s302-5', 'assets/bg/s03/s302-5.png');
+                break;
+            case _level.L4:
+                //五瑞之門-1
+                this.load.image('bg-s401-1', 'assets/bg/s04/s401-1.png');
+                this.load.image('bg-s401-2', 'assets/bg/s04/s401-2.png');
+                //五瑞之門-2
+                this.load.image('bg-s402-1', 'assets/bg/s04/s402-1.png');
+                this.load.image('bg-s402-2', 'assets/bg/s04/s402-2.png');
+                //五瑞之門-3
+                this.load.image('bg-s403-1', 'assets/bg/s04/s403-1.png');
+                this.load.image('bg-s403-2', 'assets/bg/s04/s403-2.png');
+                this.load.image('bg-s403-3', 'assets/bg/s04/s403-3.png');
+                this.load.image('s403-p1', 'assets/bg/s04/s403-p1.png');
+                this.load.image('s403-p2', 'assets/bg/s04/s403-p2.png');
+                this.load.image('s403-p3', 'assets/bg/s04/s403-p3.png');
+                this.load.image('s403-p4', 'assets/bg/s04/s403-p4.png');
+                this.load.image('s403-p5', 'assets/bg/s04/s403-p5.png');
+                this.load.image('s403-p6', 'assets/bg/s04/s403-p6.png');
+
+                this.load.spritesheet('zongzi1', 'assets/ani/s04/zongzi1.png', { frameWidth: 1920, frameHeight: 1080 });
+                this.load.spritesheet('zongzi2', 'assets/ani/s04/zongzi2.png', { frameWidth: 1921, frameHeight: 1080 });
+                this.load.spritesheet('pest3a', 'assets/ani/s04/pest3a.png', { frameWidth: 150, frameHeight: 150 });
+                this.load.spritesheet('pest3b', 'assets/ani/s04/pest3b.png', { frameWidth: 150, frameHeight: 150 });
+                this.load.spritesheet('pest4a', 'assets/ani/s04/pest4a.png', { frameWidth: 120, frameHeight: 140 });
+                this.load.spritesheet('pest4b', 'assets/ani/s04/pest4b.png', { frameWidth: 120, frameHeight: 140 });
+                this.load.spritesheet('pest5a', 'assets/ani/s04/pest5a.png', { frameWidth: 110, frameHeight: 80 });
+                this.load.spritesheet('pest5b', 'assets/ani/s04/pest5b.png', { frameWidth: 110, frameHeight: 80 });
+                this.load.spritesheet('pest6a', 'assets/ani/s04/pest6a.png', { frameWidth: 100, frameHeight: 90 });
+                this.load.spritesheet('pest7a', 'assets/ani/s04/pest7a.png', { frameWidth: 90, frameHeight: 150 });
+                this.load.spritesheet('pest8a', 'assets/ani/s04/pest8a.png', { frameWidth: 220, frameHeight: 130 });
+                this.load.spritesheet('pest8b', 'assets/ani/s04/pest8b.png', { frameWidth: 130, frameHeight: 220 });
+                break;
         }
     }
 
